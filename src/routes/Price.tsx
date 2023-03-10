@@ -49,7 +49,7 @@ const ProgressItem = styled.span<{ $isUp: boolean }>`
 function Price() {
   const { tickersData } = useOutletContext<PriceProps>();
 
-  const quotes = tickersData?.quotes.USD;
+  const quotes = tickersData?.quotes?.USD;
   const athDate = new Date(quotes?.ath_date);
   const athDateString = athDate.toLocaleDateString('ko-KR');
   const athTimeString = athDate.toLocaleTimeString('ko-KR');
