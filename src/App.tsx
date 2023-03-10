@@ -7,6 +7,7 @@ import { darkTheme, lightTheme } from './theme';
 import { RouterProvider } from 'react-router-dom';
 import router from './Router';
 import { HelmetProvider } from 'react-helmet-async';
+import Router from './Router';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -107,7 +108,7 @@ function App() {
           <Icon name={isLight ? 'dark_mode' : 'light_mode'} />
         </Toggle>
         <HelmetProvider>
-          <RouterProvider router={router} />
+          <Router />
         </HelmetProvider>
         <GlobalStyle />
       </ThemeProvider>

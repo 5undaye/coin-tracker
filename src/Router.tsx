@@ -1,27 +1,21 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Chart from './routes/Chart';
 import Coin from './routes/Coin';
 import Coins from './routes/Coins';
 import Price from './routes/Price';
 
-const BASE_URL = process.env.PUBLIC_URL;
+function Router() {
+  return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path="/" element={<Coins />} />
+        <Route path="/:coinId" element={<Coin />}>
+          <Route path="price" element={<Price />} />
+          <Route path="chart" element={<Chart />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <Coins />,
-    },
-    {
-      path: '/:coinId',
-      element: <Coin />,
-      children: [
-        { path: 'price', element: <Price /> },
-        { path: 'chart', element: <Chart /> },
-      ],
-    },
-  ],
-  { basename: { BASE_URL } as any }
-);
-
-export default router;
+export default Router;
