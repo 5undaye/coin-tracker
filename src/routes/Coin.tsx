@@ -236,7 +236,7 @@ function Coin() {
           <OverviewItem>
             <span>현재 금액</span>
             <span>
-              ${tickersData?.quotes.USD?.price.toFixed(3) ?? 'Unknown'}
+              ${tickersData?.quotes?.USD?.price.toFixed(3) ?? 'Unknown'}
             </span>
           </OverviewItem>
         </Overview>
